@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - System Intelligence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background-color: #ffffff;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #4b5563;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem 6rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            color: #374151;
+        }
+
+        .contact-section {
+            margin-bottom: 3rem;
+        }
+
+        .contact-method {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .contact-method h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-method a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-method p {
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+        }
+
+        .community-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .community-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .community-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .community-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+        }
+
+        .community-card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .community-card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .community-links {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">System Intelligence</div>
+            <ul>
+                <li><a href="index.html">About</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+
+        <p>We'd love to hear from you! Whether you're interested in collaboration, have questions about our research, or want to join our community, there are several ways to get in touch.</p>
+
+        <div class="contact-section">
+            <h2>General Inquiries</h2>
+
+            <div class="contact-method">
+                <h3>Email</h3>
+                <p>For general questions, collaboration opportunities, or press inquiries:</p>
+                <a href="mailto:systemintelligence0@gmail.com">systemintelligence0@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Join Our Community</h2>
+
+            <p>Connect with researchers, developers, and enthusiasts working on system intelligence.</p>
+
+            <div class="community-links">
+                <div class="community-card">
+                    <h3>GitHub</h3>
+                    <p>Explore our open-source projects and contribute.</p>
+                    <a href="https://github.com/systemintelligence" target="_blank">View GitHub →</a>
+                </div>
+
+                <div class="community-card">
+                    <h3>HuggingFace</h3>
+                    <p>Access our models, datasets, and ML resources.</p>
+                    <a href="https://huggingface.co/systemintelligence" target="_blank">View HuggingFace →</a>
+                </div>
+
+                <div class="community-card">
+                    <h3>X (Twitter)</h3>
+                    <p>Follow us for the latest news and research updates.</p>
+                    <a href="https://x.com/SysIntelligence" target="_blank">Follow on X →</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 System Intelligence Community</div>
+            <div class="social-links">
+                <a href="mailto:systemintelligence0@gmail.com">Email</a>
+                <a href="https://github.com/systemintelligence" target="_blank">GitHub</a>
+                <a href="https://huggingface.co/systemintelligence" target="_blank">HuggingFace</a>
+                <a href="https://x.com/SysIntelligence" target="_blank">X</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - System Intelligence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background-color: #ffffff;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #4b5563;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem 6rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .blog-post {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .blog-post:last-child {
+            border-bottom: none;
+        }
+
+        .blog-post h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .blog-post h2 a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .blog-post h2 a:hover {
+            color: #2563eb;
+        }
+
+        .blog-meta {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-excerpt {
+            color: #374151;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">System Intelligence</div>
+            <ul>
+                <li><a href="index.html">About</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Blogs</h1>
+
+        <article class="blog-post">
+            <h2><a href="https://www.sigops.org/2025/the-next-horizon-of-system-intelligence/" target="_blank">The Next Horizon of System Intelligence</a></h2>
+            <div class="blog-meta">September 25, 2025 • Chieh-Jan Mike Liang, Haoran Qiu, Francis Y. Yan, Tianyin Xu, Lidong Zhou</div>
+            <p class="blog-excerpt">
+                This blog post introduces a series examining AI's role in systems research. We propose a paradigm shift toward "endogenous system intelligence"—where systems can self-evolve autonomously rather than relying on external human direction. Generative AI represents another inflection point in computing, challenging traditional approaches to system design, optimization, and troubleshooting.
+            </p>
+            <a href="https://www.sigops.org/2025/the-next-horizon-of-system-intelligence/" target="_blank" class="read-more">Read more →</a>
+        </article>
+
+        <!-- Example blog post structure - uncomment and duplicate when adding more posts
+        <article class="blog-post">
+            <h2><a href="#">Blog Post Title Goes Here</a></h2>
+            <div class="blog-meta">January 15, 2025 • Author Name</div>
+            <p class="blog-excerpt">
+                This is a brief excerpt or summary of the blog post. It should give readers
+                a good sense of what the post is about and entice them to read more.
+            </p>
+            <a href="#" class="read-more">Read more →</a>
+        </article>
+        -->
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 System Intelligence Community</div>
+            <div class="social-links">
+                <a href="mailto:systemintelligence0@gmail.com">Email</a>
+                <a href="https://github.com/systemintelligence" target="_blank">GitHub</a>
+                <a href="https://huggingface.co/systemintelligence" target="_blank">HuggingFace</a>
+                <a href="https://x.com/SysIntelligence" target="_blank">X</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
