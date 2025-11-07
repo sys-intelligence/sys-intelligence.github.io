@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - System Intelligence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -21,7 +22,7 @@
             font-size: 17px;
             line-height: 1.5;
             color: #282828;
-            background: #fafaf9;
+            background: white;
             font-weight: 400;
             -webkit-font-smoothing: antialiased;
             min-height: 100%;
@@ -30,9 +31,9 @@
         }
 
         .container {
-            max-width: 660px;
+            max-width: 680px;
             margin: 0 auto;
-            padding: 0 1.6rem;
+            padding: 0 1rem;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -209,16 +210,20 @@
 
         .footer-links {
             display: flex;
-            gap: 0.5rem;
+            gap: 1rem;
+            align-items: center;
         }
 
         .footer-links a {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             color: #676767;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             position: relative;
             transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .footer-links a:hover {
@@ -227,7 +232,7 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 0 1.3rem;
+                padding: 0 24px;
             }
 
             header {
@@ -281,7 +286,7 @@
         </header>
 
         <main>
-            <h1 class="page-title">Research Notes</h1>
+            <h1 class="page-title">Research notes</h1>
             <p class="page-subtitle">Sharing progress, findings, and ideas from the research team</p>
 
             <div class="blog-list">
@@ -311,10 +316,10 @@
             <div class="footer-content">
                 <div>System Intelligence Community &copy; 2025</div>
                 <div class="footer-links">
-                    <a href="mailto:systemintelligence0@gmail.com">Email</a>
-                    <a href="https://github.com/systemintelligence" target="_blank" rel="noopener">GitHub</a>
-                    <a href="https://join.slack.com/t/system-intelligence/shared_invite/zt-3hpkgr2aa-NnuPxUbyHr45S89DFi_N1A" target="_blank" rel="noopener">Slack</a>
-                    <a href="https://x.com/SysIntelligence" target="_blank" rel="noopener">X</a>
+                    <a href="mailto:systemintelligence0@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://github.com/systemintelligence" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://join.slack.com/t/system-intelligence/shared_invite/zt-3hpkgr2aa-NnuPxUbyHr45S89DFi_N1A" target="_blank" rel="noopener" aria-label="Slack"><i class="fa-brands fa-slack"></i></a>
+                    <a href="https://x.com/SysIntelligence" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
             </div>
         </footer>
