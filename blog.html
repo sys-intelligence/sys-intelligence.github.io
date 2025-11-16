@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - System Intelligence</title>
     <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
@@ -43,17 +46,17 @@
         header {
             padding: 40px 0 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
         }
 
         .logo {
-            font-family: 'Chakra Petch', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 17px;
-            font-weight: 500;
-            color: #676767;
+            font-family: 'Sixtyfour', monospace;
+            font-size: 14px;
+            font-weight: 400;
+            color: #282828;
             text-decoration: none;
-            letter-spacing: 1.7px;
+            letter-spacing: 0.02em;
             text-transform: uppercase;
         }
 
@@ -89,7 +92,7 @@
 
         .page-title {
             font-family: 'Iowan Old Style BT', Georgia, serif;
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-weight: 600;
             line-height: 1.1;
             margin-bottom: 0.5rem;
@@ -188,10 +191,30 @@
             color: #6b6866;
         }
 
+        .back-link {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            text-align: center;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .back-link a {
+            color: #676767;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+            text-decoration-color: rgba(40, 40, 40, 0.2);
+            text-underline-offset: 2px;
+        }
+
         footer {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             border-top: 1px solid #e5e5e5;
-            padding: 20px 0 30px;
+            padding: 10px 0 30px;
             margin-top: 0;
         }
 
@@ -280,16 +303,15 @@
 <body>
     <div class="container">
         <header>
-            <a href="index.html" class="logo">System Intelligence</a>
             <nav>
-                <a href="blog.html">Blog</a>
+                <a href="index.html">Home</a>
                 <a href="index.html#join-us">About</a>
             </nav>
         </header>
 
         <main>
             <h1 class="page-title">Research notes</h1>
-            <p class="page-subtitle">Sharing progress, findings, and ideas from the research team</p>
+            <p class="page-subtitle">Sharing progress, findings, and ideas from the team</p>
 
             <div class="blog-list">
                 <article class="blog-item">
@@ -313,6 +335,10 @@
                 </article>
             </div>
         </main>
+
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
 
         <footer>
             <div class="footer-content">
