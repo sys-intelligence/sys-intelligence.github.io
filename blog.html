@@ -25,8 +25,8 @@
             font-family: 'Iowan Old Style BT', Georgia, serif;
             font-size: 17px;
             line-height: 1.5;
-            color: #282828;
-            background: white;
+            color: #e8e8e8;
+            background: #1a1a1a;
             font-weight: 400;
             -webkit-font-smoothing: antialiased;
             min-height: 100%;
@@ -54,7 +54,7 @@
             font-family: 'Sixtyfour', monospace;
             font-size: 14px;
             font-weight: 400;
-            color: #282828;
+            color: #e8e8e8;
             text-decoration: none;
             letter-spacing: 0.02em;
             text-transform: uppercase;
@@ -74,14 +74,14 @@
         nav a {
             font-family: 'Iowan Old Style BT', Georgia, serif;
             font-weight: 500;
-            color: #3c3836;
+            color: #d4d4d4;
             text-decoration: none;
             letter-spacing: -0.01em;
         }
 
         nav a:hover {
             text-decoration: underline;
-            text-decoration-color: rgba(40, 40, 40, 0.2);
+            text-decoration-color: rgba(232, 232, 232, 0.3);
             text-underline-offset: 2px;
         }
 
@@ -92,12 +92,12 @@
 
         .page-title {
             font-family: 'Iowan Old Style BT', Georgia, serif;
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 600;
             line-height: 1.1;
             margin-bottom: 0.5rem;
             padding-top: 0.5rem;
-            color: #282828;
+            color: #e8e8e8;
         }
 
         .page-subtitle {
@@ -111,84 +111,79 @@
         }
 
         .blog-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            padding-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 500px), 1fr));
+            gap: 2rem;
+            padding-top: 2.5rem;
         }
 
         .blog-item {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 2rem;
-            align-items: baseline;
-            line-height: 1.4;
-            padding: 1.2rem 1.5rem;
-            margin: 0 -1.5rem;
-            margin-bottom: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            background: #232323;
+            border: 1px solid #333333;
             border-radius: 8px;
-            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .blog-item:hover {
-            background-color: rgba(128, 128, 128, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         }
 
-        .blog-date {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: 15px;
-            color: #676767;
-            font-weight: 400;
-            white-space: nowrap;
-            text-align: left;
-            transition: opacity 0.2s ease;
-        }
-
-        .blog-item:hover .blog-date {
-            color: #6b6866;
+        .blog-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: #2a2a2a;
         }
 
         .blog-content {
+            padding: 1.75rem;
             display: flex;
             flex-direction: column;
-            gap: 0.25rem;
+            gap: 0.75rem;
+            flex: 1;
         }
+
 
         .blog-title {
             font-family: 'Iowan Old Style BT', Georgia, serif;
-            font-size: 16px;
-            font-weight: bold;
-            line-height: 1.4;
-            color: #282828;
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.3;
+            color: #e8e8e8;
             margin-bottom: 0;
-            transition: opacity 0.2s ease;
         }
 
         .blog-title a {
-            color: #282828;
+            color: #e8e8e8;
             text-decoration: none;
-            position: relative;
             transition: color 0.2s ease;
         }
 
-        .blog-item:hover .blog-title a {
-            text-decoration: underline;
-            text-decoration-color: rgba(80, 73, 69, 0.2);
-            text-underline-offset: 2px;
+        .blog-title a:hover {
+            color: #6dc04f;
         }
 
-        .blog-author {
+        .blog-excerpt {
+            font-family: 'Iowan Old Style BT', Georgia, serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #b8b8b8;
+            margin-top: 0.5rem;
+        }
+
+
+        .blog-meta {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: 16px;
-            color: #676767;
-            line-height: 1.5;
-            padding-top: 10px;
-            font-weight: 500;
-            transition: opacity 0.2s ease;
-        }
-
-        .blog-item:hover .blog-author {
-            color: #6b6866;
+            font-size: 0.85rem;
+            color: #888888;
+            font-weight: 400;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333333;
         }
 
         .back-link {
@@ -199,7 +194,7 @@
         }
 
         .back-link a {
-            color: #676767;
+            color: #888888;
             text-decoration: none;
             font-size: 13px;
             font-weight: 400;
@@ -207,13 +202,13 @@
 
         .back-link a:hover {
             text-decoration: underline;
-            text-decoration-color: rgba(40, 40, 40, 0.2);
+            text-decoration-color: rgba(232, 232, 232, 0.3);
             text-underline-offset: 2px;
         }
 
         footer {
             font-family: 'Iowan Old Style BT', Georgia, serif;
-            border-top: 1px solid #e5e5e5;
+            border-top: 1px solid #333333;
             padding: 10px 0 30px;
             margin-top: 0;
         }
@@ -226,7 +221,7 @@
             gap: 0.5rem;
             font-size: 0.9rem;
             font-weight: 500;
-            color: #676767;
+            color: #888888;
         }
 
         .footer-content > div:first-child {
@@ -241,7 +236,7 @@
 
         .footer-links a {
             font-family: 'Iowan Old Style BT', Georgia, serif;
-            color: #676767;
+            color: #888888;
             text-decoration: none;
             font-size: 1.1rem;
             position: relative;
@@ -252,7 +247,7 @@
         }
 
         .footer-links a:hover {
-            color: #6b6866;
+            color: #9b9b9b;
         }
 
         @media (max-width: 768px) {
@@ -269,14 +264,25 @@
                 gap: 2rem;
             }
 
-            .blog-item {
-                display: block;
-                padding: 1.6rem;
-                margin: 0 -1.6rem;
+            .blog-list {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .blog-date {
-                display: none;
+            .blog-title {
+                font-size: 1.15rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .blog-content {
+                padding: 1.5rem;
+            }
+
+            .blog-image {
+                height: 250px;
             }
 
             main {
@@ -315,22 +321,24 @@
 
             <div class="blog-list">
                 <article class="blog-item">
-                    <div class="blog-date">Nov 15</div>
+                    <img src="blog2.jpg" alt="Blog post thumbnail" class="blog-image">
                     <div class="blog-content">
                         <h2 class="blog-title">
                             <a href="#" target="_blank" rel="noopener">Defining System Intelligence (coming soon)</a>
                         </h2>
-                        <p class="blog-author">System Intelligence v-Team</p>
+                        <p class="blog-excerpt">Despite the exciting vision of system intelligence, its definition has remained murky, often hindering progress toward its realization. This blog tries to make it clear.</p>
+                        <div class="blog-meta">System Intelligence v-Team · November 15, 2025</div>
                     </div>
                 </article>
 
                 <article class="blog-item">
-                    <div class="blog-date">Sep 29</div>
+                    <img src="blog1.png" alt="Blog post thumbnail" class="blog-image">
                     <div class="blog-content">
                         <h2 class="blog-title">
                             <a href="https://www.sigops.org/2025/the-next-horizon-of-system-intelligence/" target="_blank" rel="noopener">The Next Horizon of System Intelligence</a>
                         </h2>
-                        <p class="blog-author">Chieh-Jan Mike Liang, Haoran Qiu, Francis Y. Yan, Tianyin Xu, Lidong Zhou</p>
+                        <p class="blog-excerpt">This article originally appeared on SIGOPS Blog. We explore how AI capabilities can advance to design, implement, and operate next-generation computing systems.</p>
+                        <div class="blog-meta">Chieh-Jan Mike Liang, Haoran Qiu, Francis Y. Yan, Tianyin Xu, Lidong Zhou · September 29, 2025</div>
                     </div>
                 </article>
             </div>
