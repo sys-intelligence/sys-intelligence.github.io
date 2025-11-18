@@ -46,8 +46,22 @@
         header {
             padding: 40px 0 20px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
+        }
+
+        .theme-toggle {
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: #d4d4d4;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: #e8e8e8;
         }
 
         .logo {
@@ -309,6 +323,9 @@
 <body>
     <div class="container">
         <header>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="index.html#join-us">About</a>
@@ -324,10 +341,10 @@
                     <img src="blogs/blog2.jpg" alt="Blog post thumbnail" class="blog-image">
                     <div class="blog-content">
                         <h2 class="blog-title">
-                            <a href="#" target="_blank" rel="noopener">Defining System Intelligence</a>
+                            <a href="https://www.sigops.org/2025/defining-system-intelligence/" target="_blank" rel="noopener">Defining System Intelligence</a>
                         </h2>
                         <!-- <p class="blog-excerpt">Despite the exciting vision of system intelligence, its definition has remained murky, often hindering progress toward its realization. This blog tries to make it clear.</p> -->
-                        <div class="blog-meta">System Intelligence v-Team · November 19, 2025</div>
+                        <div class="blog-meta">Xuan Feng, Peng Cheng, Qi Chen, Shan Lu, Chieh-Jan Mike Liang, Bogdan Alexandru Stoica, Zhongxin Guo, Jiahang Xu, Tianyin Xu, and Lidong Zhou · November 19, 2025</div>
                     </div>
                 </article>
 
@@ -345,7 +362,7 @@
         </main>
 
         <div class="back-link">
-            <a href="index.html">← Back to Home</a>
+            <a href="index.html">← Back</a>
         </div>
 
         <footer>
@@ -353,12 +370,123 @@
                 <div>System Intelligence Community &copy; 2025</div>
                 <div class="footer-links">
                     <a href="mailto:systemintelligence0@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="https://github.com/systemintelligence" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://join.slack.com/t/system-intelligence/shared_invite/zt-3hpkgr2aa-NnuPxUbyHr45S89DFi_N1A" target="_blank" rel="noopener" aria-label="Slack"><i class="fa-brands fa-slack"></i></a>
+                    <a href="https://github.com/sys-intelligence" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://join.slack.com/t/sys-intelligence/shared_invite/zt-3hpkgr2aa-NnuPxUbyHr45S89DFi_N1A" target="_blank" rel="noopener" aria-label="Slack"><i class="fa-brands fa-slack"></i></a>
                     <a href="https://x.com/SysIntelligenc" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
             </div>
         </footer>
     </div>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            setLightMode();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.style.background === 'rgb(26, 26, 26)' || body.style.background === '#1a1a1a' || !body.style.background) {
+                setLightMode();
+                localStorage.setItem('theme', 'light');
+            } else {
+                setDarkMode();
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        function setLightMode() {
+            body.style.background = '#ffffff';
+            body.style.color = '#282828';
+
+            document.querySelectorAll('.blog-item').forEach(item => {
+                item.style.background = '#ffffff';
+                item.style.borderColor = '#e8e8e8';
+            });
+
+            document.querySelectorAll('.blog-title').forEach(title => {
+                title.style.color = '#282828';
+            });
+
+            document.querySelectorAll('.blog-title a').forEach(link => {
+                link.style.color = '#282828';
+            });
+
+            document.querySelectorAll('.blog-meta').forEach(meta => {
+                meta.style.color = '#676767';
+                meta.style.borderTopColor = '#e8e8e8';
+            });
+
+            document.querySelectorAll('.blog-excerpt').forEach(excerpt => {
+                excerpt.style.color = '#504945';
+            });
+
+            document.querySelector('.page-title').style.color = '#282828';
+            document.querySelector('.page-subtitle').style.color = '#504945';
+            document.querySelector('footer').style.borderTopColor = '#e5e5e5';
+
+            document.querySelector('.footer-content').style.color = '#676767';
+
+            document.querySelectorAll('.footer-links a').forEach(link => {
+                link.style.color = '#676767';
+            });
+
+            document.querySelector('.back-link a').style.color = '#676767';
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.style.color = '#3c3836';
+            });
+
+            icon.className = 'fa-solid fa-sun';
+        }
+
+        function setDarkMode() {
+            body.style.background = '#1a1a1a';
+            body.style.color = '#e8e8e8';
+
+            document.querySelectorAll('.blog-item').forEach(item => {
+                item.style.background = '#232323';
+                item.style.borderColor = '#333333';
+            });
+
+            document.querySelectorAll('.blog-title').forEach(title => {
+                title.style.color = '#e8e8e8';
+            });
+
+            document.querySelectorAll('.blog-title a').forEach(link => {
+                link.style.color = '#e8e8e8';
+            });
+
+            document.querySelectorAll('.blog-meta').forEach(meta => {
+                meta.style.color = '#888888';
+                meta.style.borderTopColor = '#333333';
+            });
+
+            document.querySelectorAll('.blog-excerpt').forEach(excerpt => {
+                excerpt.style.color = '#b8b8b8';
+            });
+
+            document.querySelector('.page-title').style.color = '#e8e8e8';
+            document.querySelector('.page-subtitle').style.color = '#b8b8b8';
+            document.querySelector('footer').style.borderTopColor = '#333333';
+
+            document.querySelector('.footer-content').style.color = '#888888';
+
+            document.querySelectorAll('.footer-links a').forEach(link => {
+                link.style.color = '#888888';
+            });
+
+            document.querySelector('.back-link a').style.color = '#888888';
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.style.color = '#d4d4d4';
+            });
+
+            icon.className = 'fa-solid fa-moon';
+        }
+    </script>
 </body>
 </html>
