@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team & Contributors - System Intelligence</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #1a1a1a;
+            --fg: #e8e8e8;
+            --fg1: #d4d4d4;
+            --fg2: #b8b8b8;
+            --fg3: #9b9b9b;
+            --fg4: #888888;
+            --hover-bg: rgba(255, 255, 255, 0.08);
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-serif: 'Iowan Old Style BT', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            line-height: 1.5;
+            color: var(--fg);
+            background: var(--bg);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            padding: 40px 0 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            font-size: 1.2rem;
+            background: none;
+            border: none;
+            color: var(--fg1);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--fg);
+        }
+
+        nav {
+            font-family: var(--font-serif);
+            display: flex;
+            gap: 1.5rem;
+            font-size: 15px;
+            align-items: center;
+        }
+
+        nav a {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            color: var(--fg1);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            text-decoration-color: rgba(232, 232, 232, 0.3);
+            text-underline-offset: 2px;
+        }
+
+        main {
+            padding: 3rem 0 120px;
+        }
+
+        .page-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            padding-top: 0.5rem;
+            color: var(--fg);
+        }
+
+        .page-subtitle {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--fg2);
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin: 2.5em 0 1.5em;
+            color: var(--fg);
+        }
+
+        .section-title:first-of-type {
+            margin-top: 1em;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .member-card {
+            background: linear-gradient(135deg, #232323 0%, #1e1e1e 100%);
+            border: 1px solid #333333;
+            border-radius: 10px;
+            padding: 1.75rem 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #6dc04f 0%, #5aa03f 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .member-card:hover {
+            background: #2a2a2a;
+            border-color: #444444;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .member-card:hover::before {
+            opacity: 1;
+        }
+
+        .member-name {
+            font-family: var(--font-sans);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--fg);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .member-affiliation {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            color: var(--fg3);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .member-role {
+            font-family: var(--font-serif);
+            font-size: 0.9rem;
+            color: var(--fg2);
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .member-links {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #2a2a2a;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .member-links a {
+            color: var(--fg3);
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .member-links a:hover {
+            color: var(--fg1);
+        }
+
+        .back-link {
+            font-family: var(--font-sans);
+            text-align: center;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .back-link a {
+            color: var(--fg4);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+            text-decoration-color: rgba(232, 232, 232, 0.3);
+            text-underline-offset: 2px;
+        }
+
+        footer {
+            font-family: var(--font-serif);
+            border-top: 1px solid #333333;
+            padding: 10px 0 30px;
+            margin-top: 0;
+        }
+
+        .footer-content {
+            font-family: var(--font-serif);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--fg4);
+        }
+
+        .footer-content > div:first-child {
+            font-family: var(--font-serif);
+        }
+
+        .footer-links {
+            font-family: var(--font-serif);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .footer-links a {
+            font-family: var(--font-serif);
+            color: var(--fg4);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--fg3);
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            header {
+                padding: 30px 0 40px;
+                justify-content: flex-start;
+            }
+
+            nav {
+                gap: 32px;
+            }
+
+            main {
+                padding: 0 0 80px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="index.html#join-us">About</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <h1 class="page-title">Team & Contributors</h1>
+            <p class="page-subtitle">Meet the researchers, engineers, and builders behind System Intelligence</p>
+
+            <h2 class="section-title">Core Team</h2>
+            <div class="members-grid">
+                <div class="member-card">
+                    <h3 class="member-name">Chieh-Jan Mike Liang</h3>
+                    <p class="member-affiliation">Microsoft Research</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 class="member-name">Tianyin Xu</h3>
+                    <p class="member-affiliation">University of Illinois Urbana-Champaign</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 class="member-name">Lidong Zhou</h3>
+                    <p class="member-affiliation">Microsoft Research</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 class="member-name">Shan Lu</h3>
+                    <p class="member-affiliation">University of Chicago</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 class="member-name">Haoran Qiu</h3>
+                    <p class="member-affiliation">University of Chicago</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 class="member-name">Francis Y. Yan</h3>
+                    <p class="member-affiliation">Microsoft Research</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 class="member-name">Xuan Feng</h3>
+                    <p class="member-affiliation">University of Chicago</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 class="member-name">Peng Cheng</h3>
+                    <p class="member-affiliation">Microsoft Research</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 class="member-name">Qi Chen</h3>
+                    <p class="member-affiliation">University of California, Irvine</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 class="member-name">Bogdan Alexandru Stoica</h3>
+                    <p class="member-affiliation">University of Chicago</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 class="member-name">Zhongxin Guo</h3>
+                    <p class="member-affiliation">University of Chicago</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 class="member-name">Jiahang Xu</h3>
+                    <p class="member-affiliation">University of Illinois Urbana-Champaign</p>
+                    <p class="member-role">Research</p>
+                    <div class="member-links">
+                        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Contributors</h2>
+            <p class="page-subtitle" style="margin-bottom: 2rem;">We welcome contributions from the community. Join us in advancing system intelligence research.</p>
+
+            <!-- Add more contributor cards here as the community grows -->
+        </main>
+
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div>System Intelligence Community &copy; 2025</div>
+                <div class="footer-links">
+                    <a href="mailto:systemintelligence0@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://github.com/sys-intelligence" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://join.slack.com/t/sys-intelligence/shared_invite/zt-3hpkgr2aa-NnuPxUbyHr45S89DFi_N1A" target="_blank" rel="noopener" aria-label="Slack"><i class="fa-brands fa-slack"></i></a>
+                    <a href="https://x.com/SysIntelligenc" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            setLightMode();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (root.style.getPropertyValue('--bg') === '#1a1a1a' || !root.style.getPropertyValue('--bg')) {
+                setLightMode();
+                localStorage.setItem('theme', 'light');
+            } else {
+                setDarkMode();
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        function setLightMode() {
+            root.style.setProperty('--bg', '#ffffff');
+            root.style.setProperty('--fg', '#282828');
+            root.style.setProperty('--fg1', '#3c3836');
+            root.style.setProperty('--fg2', '#504945');
+            root.style.setProperty('--fg3', '#6b6866');
+            root.style.setProperty('--fg4', '#676767');
+            root.style.setProperty('--hover-bg', 'rgba(128, 128, 128, 0.12)');
+
+            document.querySelectorAll('.member-card').forEach(card => {
+                card.style.background = 'linear-gradient(135deg, #ffffff 0%, #fafafa 100%)';
+                card.style.borderColor = '#e8e8e8';
+            });
+
+            document.querySelectorAll('.member-links').forEach(links => {
+                links.style.borderTopColor = '#e8e8e8';
+            });
+
+            document.querySelector('footer').style.borderTopColor = '#e5e5e5';
+
+            icon.className = 'fa-solid fa-sun';
+        }
+
+        function setDarkMode() {
+            root.style.setProperty('--bg', '#1a1a1a');
+            root.style.setProperty('--fg', '#e8e8e8');
+            root.style.setProperty('--fg1', '#d4d4d4');
+            root.style.setProperty('--fg2', '#b8b8b8');
+            root.style.setProperty('--fg3', '#9b9b9b');
+            root.style.setProperty('--fg4', '#888888');
+            root.style.setProperty('--hover-bg', 'rgba(255, 255, 255, 0.08)');
+
+            document.querySelectorAll('.member-card').forEach(card => {
+                card.style.background = 'linear-gradient(135deg, #232323 0%, #1e1e1e 100%)';
+                card.style.borderColor = '#333333';
+            });
+
+            document.querySelectorAll('.member-links').forEach(links => {
+                links.style.borderTopColor = '#2a2a2a';
+            });
+
+            document.querySelector('footer').style.borderTopColor = '#333333';
+
+            icon.className = 'fa-solid fa-moon';
+        }
+    </script>
+</body>
+</html>
